@@ -1,0 +1,10 @@
+#disable_html_escaping()
+#if ($value)
+    #foreach ($singleValue in $value)
+        #if ($ctx.featureManager.isEnabled("com.atlassian.jira.plugin.export.xml.unified.enabled"))
+<customfieldvalue id="$!singleValue.id">#xmlEscape($!singleValue.name)</customfieldvalue>
+        #else
+<customfieldvalue>$!singleValue.id</customfieldvalue>
+        #end
+    #end
+#end

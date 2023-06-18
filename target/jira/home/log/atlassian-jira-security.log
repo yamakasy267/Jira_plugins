@@ -1,0 +1,87 @@
+2023-05-29 23:22:10,526 localhost-startStop-1      JIRA 7.13.0 build: 713000 started. You can now access JIRA through your web browser.
+2023-05-29 23:23:28,265 http-nio-2990-exec-3 anonymous 1403x2x2 - 0:0:0:0:0:0:0:1 / HttpSession created [1p0xwbf]
+2023-05-29 23:25:03,482 http-nio-2990-exec-3 anonymous 1405x913x1 1p0xwbf 0:0:0:0:0:0:0:1 /rest/gadget/1.0/login HttpSession [1p0xwbf] destroyed for 'anonymous'
+2023-05-29 23:25:03,482 http-nio-2990-exec-3 anonymous 1405x913x1 1p0xwbf 0:0:0:0:0:0:0:1 /rest/gadget/1.0/login HttpSession created [6ofr7k]
+2023-05-29 23:25:03,629 http-nio-2990-exec-3 admin 1405x913x1 1p0xwbf 0:0:0:0:0:0:0:1 /rest/gadget/1.0/login The user 'admin' has PASSED authentication.
+2023-05-30 03:48:47,712 localhost-startStop-1      JIRA 7.13.0 build: 713000 started. You can now access JIRA through your web browser.
+2023-05-30 03:49:03,073 http-nio-2990-exec-3 anonymous 229x1x1 - 0:0:0:0:0:0:0:1 /browse/TES-1 HttpSession created [11s41ql]
+2023-05-30 03:49:03,340 http-nio-2990-exec-3 admin 229x1x1 - 0:0:0:0:0:0:0:1 /browse/TES-1 The user 'admin' has PASSED authentication.
+2023-05-30 03:49:08,442 http-nio-2990-exec-4 anonymous 229x2x2 - 0:0:0:0:0:0:0:1 /browse/TES-1 HttpSession created [1ftz22l]
+2023-05-30 03:49:08,483 http-nio-2990-exec-4 admin 229x2x2 - 0:0:0:0:0:0:0:1 /browse/TES-1 The user 'admin' has PASSED authentication.
+2023-05-30 03:51:04,591 ContainerBackgroundProcessor[StandardEngine[Catalina]]      HttpSession [11s41ql] destroyed for 'admin'
+2023-05-30 04:06:38,435 localhost-startStop-1      JIRA 7.13.0 build: 713000 started. You can now access JIRA through your web browser.
+2023-05-30 04:12:15,135 http-nio-2990-exec-3 anonymous 252x2x1 - 0:0:0:0:0:0:0:1 /secure/Dashboard.jspa HttpSession created [15sbhs0]
+2023-05-30 04:12:15,797 http-nio-2990-exec-3 admin 252x2x1 - 0:0:0:0:0:0:0:1 /secure/Dashboard.jspa The user 'admin' has PASSED authentication.
+2023-05-30 04:31:39,794 http-nio-2990-exec-18 anonymous 271x11528x1 - 127.0.0.1 /secure/Dashboard.jspa HttpSession created [1frdv4r]
+2023-05-30 04:32:28,290 http-nio-2990-exec-11 anonymous 272x12441x1 1frdv4r 127.0.0.1 /rest/gadget/1.0/login HttpSession [1frdv4r] destroyed for 'anonymous'
+2023-05-30 04:32:28,291 http-nio-2990-exec-11 anonymous 272x12441x1 1frdv4r 127.0.0.1 /rest/gadget/1.0/login HttpSession created [jhnyqh]
+2023-05-30 04:32:28,317 http-nio-2990-exec-11 admin 272x12441x1 1frdv4r 127.0.0.1 /rest/gadget/1.0/login The user 'admin' has PASSED authentication.
+2023-05-30 04:32:43,174 http-nio-2990-exec-27 anonymous 272x13815x6 - 0:0:0:0:0:0:0:1 /login.jsp HttpSession created [13susgm]
+2023-05-30 04:32:43,175 http-nio-2990-exec-17 anonymous 272x13814x5 - 0:0:0:0:0:0:0:1 /login.jsp HttpSession created [e12acu]
+2023-05-30 04:32:43,175 http-nio-2990-exec-31 anonymous 272x13812x3 - 0:0:0:0:0:0:0:1 /login.jsp HttpSession created [1lz622o]
+2023-05-30 04:32:43,174 http-nio-2990-exec-18 anonymous 272x13810x1 - 0:0:0:0:0:0:0:1 /login.jsp HttpSession created [su4o7g]
+2023-05-30 04:32:43,174 http-nio-2990-exec-34 anonymous 272x13813x4 - 0:0:0:0:0:0:0:1 /login.jsp HttpSession created [1k2e41u]
+2023-05-30 04:32:43,176 http-nio-2990-exec-29 anonymous 272x13811x2 - 0:0:0:0:0:0:0:1 /login.jsp HttpSession created [jqkpa5]
+2023-05-30 04:34:06,059 ContainerBackgroundProcessor[StandardEngine[Catalina]]      HttpSession [13susgm] destroyed for 'anonymous'
+2023-05-30 04:34:06,059 ContainerBackgroundProcessor[StandardEngine[Catalina]]      HttpSession [e12acu] destroyed for 'anonymous'
+2023-05-30 04:34:06,059 ContainerBackgroundProcessor[StandardEngine[Catalina]]      HttpSession [jqkpa5] destroyed for 'anonymous'
+2023-05-30 04:34:06,060 ContainerBackgroundProcessor[StandardEngine[Catalina]]      HttpSession [1lz622o] destroyed for 'anonymous'
+2023-05-30 04:34:06,060 ContainerBackgroundProcessor[StandardEngine[Catalina]]      HttpSession [1k2e41u] destroyed for 'anonymous'
+2023-05-30 04:34:06,060 ContainerBackgroundProcessor[StandardEngine[Catalina]]      HttpSession [su4o7g] destroyed for 'anonymous'
+2023-05-30 05:32:09,900 ContainerBackgroundProcessor[StandardEngine[Catalina]]      HttpSession [15sbhs0] destroyed for 'admin'
+2023-05-30 09:33:29,009 ContainerBackgroundProcessor[StandardEngine[Catalina]]      HttpSession [jhnyqh] destroyed for 'admin'
+2023-06-02 21:13:11,089 localhost-startStop-1      JIRA 7.13.0 build: 713000 started. You can now access JIRA through your web browser.
+2023-06-02 21:20:53,676 http-nio-2990-exec-7 anonymous 1280x2x1 - 0:0:0:0:0:0:0:1 / HttpSession created [1l5kzf5]
+2023-06-02 21:20:53,887 http-nio-2990-exec-7 admin 1280x2x1 - 0:0:0:0:0:0:0:1 / The user 'admin' has PASSED authentication.
+2023-06-02 21:35:31,403 http-nio-2990-exec-11 anonymous 1295x2728x2 - 127.0.0.1 /secure/Dashboard.jspa HttpSession created [wjhl4p]
+2023-06-02 22:36:38,747 ContainerBackgroundProcessor[StandardEngine[Catalina]]      HttpSession [wjhl4p] destroyed for 'anonymous'
+2023-06-02 22:40:36,947 http-nio-2990-exec-4      HttpSession [1l5kzf5] destroyed for 'admin'
+2023-06-02 22:40:37,422 http-nio-2990-exec-4 anonymous 1360x9085x1 - 0:0:0:0:0:0:0:1 /browse/TES-1 HttpSession created [s2tmul]
+2023-06-02 22:40:37,818 http-nio-2990-exec-4 admin 1360x9085x1 - 0:0:0:0:0:0:0:1 /browse/TES-1 The user 'admin' has PASSED authentication.
+2023-06-02 22:41:38,794 http-nio-2990-exec-10 anonymous 1361x11838x2 - 127.0.0.1 /login.jsp HttpSession created [kh59sk]
+2023-06-02 22:41:38,794 http-nio-2990-exec-12 anonymous 1361x11840x4 - 127.0.0.1 /login.jsp HttpSession created [jowyre]
+2023-06-02 22:41:38,794 http-nio-2990-exec-3 anonymous 1361x11842x6 - 127.0.0.1 /login.jsp HttpSession created [wewjp0]
+2023-06-02 22:41:38,794 http-nio-2990-exec-14 anonymous 1361x11839x3 - 127.0.0.1 /login.jsp HttpSession created [1nv9ao3]
+2023-06-02 22:41:38,794 http-nio-2990-exec-17 anonymous 1361x11837x1 - 127.0.0.1 /login.jsp HttpSession created [1kje53l]
+2023-06-02 22:41:38,794 http-nio-2990-exec-13 anonymous 1361x11841x5 - 127.0.0.1 /login.jsp HttpSession created [zc8wwq]
+2023-06-02 22:42:17,731 http-nio-2990-exec-4 anonymous 1362x14476x2 - 127.0.0.1 /login.jsp HttpSession created [io1la9]
+2023-06-02 22:42:17,734 http-nio-2990-exec-14 anonymous 1362x14475x1 - 127.0.0.1 /login.jsp HttpSession created [1nlnu2d]
+2023-06-02 22:42:17,734 http-nio-2990-exec-11 anonymous 1362x14477x3 - 127.0.0.1 /login.jsp HttpSession created [9cz865]
+2023-06-02 22:42:17,737 http-nio-2990-exec-1 anonymous 1362x14479x5 - 127.0.0.1 /login.jsp HttpSession created [isje6x]
+2023-06-02 22:42:17,737 http-nio-2990-exec-15 anonymous 1362x14478x4 - 127.0.0.1 /login.jsp HttpSession created [1ag0vbl]
+2023-06-02 22:42:17,760 http-nio-2990-exec-7 anonymous 1362x14484x6 - 127.0.0.1 /login.jsp HttpSession created [lrm4e6]
+2023-06-02 22:42:17,809 http-nio-2990-exec-8 anonymous 1362x14485x7 - 127.0.0.1 /login.jsp HttpSession created [19hodfz]
+2023-06-02 22:42:17,809 http-nio-2990-exec-2 anonymous 1362x14486x8 - 127.0.0.1 /login.jsp HttpSession created [jvm9q1]
+2023-06-02 22:42:17,809 http-nio-2990-exec-10 anonymous 1362x14487x9 - 127.0.0.1 /login.jsp HttpSession created [kng0tc]
+2023-06-02 22:42:46,735 ContainerBackgroundProcessor[StandardEngine[Catalina]]      HttpSession [1nv9ao3] destroyed for 'anonymous'
+2023-06-02 22:42:46,735 ContainerBackgroundProcessor[StandardEngine[Catalina]]      HttpSession [zc8wwq] destroyed for 'anonymous'
+2023-06-02 22:42:46,735 ContainerBackgroundProcessor[StandardEngine[Catalina]]      HttpSession [kh59sk] destroyed for 'anonymous'
+2023-06-02 22:42:46,735 ContainerBackgroundProcessor[StandardEngine[Catalina]]      HttpSession [1kje53l] destroyed for 'anonymous'
+2023-06-02 22:42:46,736 ContainerBackgroundProcessor[StandardEngine[Catalina]]      HttpSession [jowyre] destroyed for 'anonymous'
+2023-06-02 22:42:46,736 ContainerBackgroundProcessor[StandardEngine[Catalina]]      HttpSession [wewjp0] destroyed for 'anonymous'
+2023-06-02 22:43:46,713 http-nio-2990-exec-4 anonymous 1363x15850x1 - 127.0.0.1 /projects/TES/issues/TES-2 HttpSession created [1qs02h5]
+2023-06-02 22:43:46,827 ContainerBackgroundProcessor[StandardEngine[Catalina]]      HttpSession [1nlnu2d] destroyed for 'anonymous'
+2023-06-02 22:43:46,848 ContainerBackgroundProcessor[StandardEngine[Catalina]]      HttpSession [io1la9] destroyed for 'anonymous'
+2023-06-02 22:43:46,848 ContainerBackgroundProcessor[StandardEngine[Catalina]]      HttpSession [jvm9q1] destroyed for 'anonymous'
+2023-06-02 22:43:46,848 ContainerBackgroundProcessor[StandardEngine[Catalina]]      HttpSession [kng0tc] destroyed for 'anonymous'
+2023-06-02 22:43:46,848 ContainerBackgroundProcessor[StandardEngine[Catalina]]      HttpSession [1ag0vbl] destroyed for 'anonymous'
+2023-06-02 22:43:46,848 ContainerBackgroundProcessor[StandardEngine[Catalina]]      HttpSession [19hodfz] destroyed for 'anonymous'
+2023-06-02 22:43:46,849 ContainerBackgroundProcessor[StandardEngine[Catalina]]      HttpSession [isje6x] destroyed for 'anonymous'
+2023-06-02 22:43:46,881 ContainerBackgroundProcessor[StandardEngine[Catalina]]      HttpSession [9cz865] destroyed for 'anonymous'
+2023-06-02 22:43:46,882 ContainerBackgroundProcessor[StandardEngine[Catalina]]      HttpSession [lrm4e6] destroyed for 'anonymous'
+2023-06-02 22:44:07,134 http-nio-2990-exec-1 anonymous 1364x16530x1 1qs02h5 127.0.0.1 /login.jsp HttpSession [1qs02h5] destroyed for 'anonymous'
+2023-06-02 22:44:07,134 http-nio-2990-exec-1 anonymous 1364x16530x1 1qs02h5 127.0.0.1 /login.jsp HttpSession created [1wnou7z]
+2023-06-02 22:44:07,151 http-nio-2990-exec-1 admin 1364x16530x1 1qs02h5 127.0.0.1 /login.jsp The user 'admin' has PASSED authentication.
+2023-06-02 23:43:54,136 ContainerBackgroundProcessor[StandardEngine[Catalina]]      HttpSession [s2tmul] destroyed for 'admin'
+2023-06-03 00:11:16,619 http-nio-2990-exec-13 anonymous 11x17912x1 - 0:0:0:0:0:0:0:1 /projects/TES/issues/TES-2 HttpSession created [8qu1i4]
+2023-06-03 00:11:16,993 http-nio-2990-exec-13 admin 11x17912x1 - 0:0:0:0:0:0:0:1 /projects/TES/issues/TES-2 The user 'admin' has PASSED authentication.
+2023-06-03 01:12:03,038 ContainerBackgroundProcessor[StandardEngine[Catalina]]      HttpSession [8qu1i4] destroyed for 'admin'
+2023-06-03 03:45:17,038 ContainerBackgroundProcessor[StandardEngine[Catalina]]      HttpSession [1wnou7z] destroyed for 'admin'
+2023-06-03 22:44:21,780 localhost-startStop-1      JIRA 7.13.0 build: 713000 started. You can now access JIRA through your web browser.
+2023-06-03 22:44:45,087 http-nio-2990-exec-3 anonymous 1364x1x1 - 0:0:0:0:0:0:0:1 /projects/TES/issues/TES-2 HttpSession created [ukmtc0]
+2023-06-03 22:44:45,282 http-nio-2990-exec-3 admin 1364x1x1 - 0:0:0:0:0:0:0:1 /projects/TES/issues/TES-2 The user 'admin' has PASSED authentication.
+2023-06-03 22:45:02,187 http-nio-2990-exec-9   -   HttpSession created [1jmo53v]
+2023-06-03 23:13:29,905 http-nio-2990-exec-4 anonymous 1393x6820x1 1jmo53v 127.0.0.1 /rest/gadget/1.0/login HttpSession [1jmo53v] destroyed for 'anonymous'
+2023-06-03 23:13:29,924 http-nio-2990-exec-4 anonymous 1393x6820x1 1jmo53v 127.0.0.1 /rest/gadget/1.0/login HttpSession created [yr1t8x]
+2023-06-03 23:13:29,930 http-nio-2990-exec-4 admin 1393x6820x1 1jmo53v 127.0.0.1 /rest/gadget/1.0/login The user 'admin' has PASSED authentication.
+2023-06-04 00:13:02,440 ContainerBackgroundProcessor[StandardEngine[Catalina]]      HttpSession [ukmtc0] destroyed for 'admin'

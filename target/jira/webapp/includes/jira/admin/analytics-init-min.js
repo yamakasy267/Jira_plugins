@@ -1,0 +1,1 @@
+require(["underscore","jira/util/data/meta","jira/admin/analytics"],function(n,t,a){AJS.toInit(function(){var e=t.get("admin.active.tab");n.defer(function(){a.bindEvents(),"view_project_workflows"===e&&a.sendLoadWorkflowsTabEvent()})})});

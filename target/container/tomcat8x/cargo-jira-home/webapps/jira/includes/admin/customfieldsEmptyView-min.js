@@ -1,0 +1,1 @@
+define("jira/customfields/customfieldsEmptyView",["jira/marionette-3.1"],function(e){"use strict";return e.View.extend({template:function(e){return JIRA.Templates.Admin.Customfields.customfieldsEmptyPageContent(e)}})});

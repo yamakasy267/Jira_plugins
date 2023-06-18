@@ -1,0 +1,1 @@
+define("jira/share/entities/display",[],function(){"use strict";function i(i,s,t,n){this.display=i,this.singleton=t,this.permission=n,this.description=s}return i});

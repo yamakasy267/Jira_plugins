@@ -1,0 +1,32 @@
+<repository lastmodified='20230604011112.515'>
+  <resource id='ru.shevtsov.ilya.plugins.spring.plugin/1.0.0.SNAPSHOT' symbolicname='ru.shevtsov.ilya.plugins.spring.plugin' presentationname='spring-plugin' uri='spring-plugin-1.0.0-SNAPSHOT.jar' version='1.0.0.SNAPSHOT'>
+    <description>This is the ru.shevtsov.ilya.plugins.spring:spring-plugin plugin for Atlassian JIRA.</description>
+    <size>18747</size>
+    <documentation>http://www.example.com/</documentation>
+    <capability name='bundle'>
+      <p n='symbolicname' v='ru.shevtsov.ilya.plugins.spring.plugin'/>
+      <p n='presentationname' v='spring-plugin'/>
+      <p n='version' t='version' v='1.0.0.SNAPSHOT'/>
+      <p n='manifestversion' v='2'/>
+    </capability>
+    <capability name='package'>
+      <p n='package' v='ru.shevtsov.ilya.plugins.spring.api'/>
+      <p n='version' t='version' v='1.0.0'/>
+    </capability>
+    <require name='package' filter='(&amp;(package=com.atlassian.jira))' extend='false' multiple='false' optional='false'>Import package com.atlassian.jira</require>
+    <require name='package' filter='(&amp;(package=com.atlassian.jira.jql.operand))' extend='false' multiple='false' optional='false'>Import package com.atlassian.jira.jql.operand</require>
+    <require name='package' filter='(&amp;(package=com.atlassian.jira.jql.query))' extend='false' multiple='false' optional='false'>Import package com.atlassian.jira.jql.query</require>
+    <require name='package' filter='(&amp;(package=com.atlassian.jira.plugin.jql.function))' extend='false' multiple='false' optional='false'>Import package com.atlassian.jira.plugin.jql.function</require>
+    <require name='package' filter='(&amp;(package=com.atlassian.jira.user))' extend='false' multiple='false' optional='false'>Import package com.atlassian.jira.user</require>
+    <require name='package' filter='(&amp;(package=com.atlassian.jira.util))' extend='false' multiple='false' optional='false'>Import package com.atlassian.jira.util</require>
+    <require name='package' filter='(&amp;(package=com.atlassian.jira.web.action))' extend='false' multiple='false' optional='false'>Import package com.atlassian.jira.web.action</require>
+    <require name='package' filter='(&amp;(package=com.atlassian.plugin.spring.scanner.annotation.export))' extend='false' multiple='false' optional='false'>Import package com.atlassian.plugin.spring.scanner.annotation.export</require>
+    <require name='package' filter='(&amp;(package=com.atlassian.plugin.spring.scanner.annotation.imports))' extend='false' multiple='false' optional='false'>Import package com.atlassian.plugin.spring.scanner.annotation.imports</require>
+    <require name='package' filter='(&amp;(package=com.atlassian.query.clause))' extend='false' multiple='false' optional='false'>Import package com.atlassian.query.clause</require>
+    <require name='package' filter='(&amp;(package=com.atlassian.query.operand))' extend='false' multiple='false' optional='false'>Import package com.atlassian.query.operand</require>
+    <require name='package' filter='(&amp;(package=com.atlassian.sal.api))' extend='false' multiple='false' optional='false'>Import package com.atlassian.sal.api</require>
+    <require name='package' filter='(&amp;(package=javax.inject))' extend='false' multiple='false' optional='false'>Import package javax.inject</require>
+    <require name='package' filter='(&amp;(package=org.slf4j))' extend='false' multiple='false' optional='false'>Import package org.slf4j</require>
+    <require name='package' filter='(&amp;(package=ru.shevtsov.ilya.plugins.spring.api)(version&gt;=1.0.0)(!(version&gt;=2.0.0)))' extend='false' multiple='false' optional='false'>Import package ru.shevtsov.ilya.plugins.spring.api;version="[1.0,2)"</require>
+  </resource>
+</repository>

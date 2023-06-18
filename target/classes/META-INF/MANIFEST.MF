@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Atlassian-Build-Date: 2023-06-04T01:11:10+0300
+Atlassian-Plugin-Key: ru.shevtsov.ilya.plugins.spring.spring-plugin
+Bnd-LastModified: 1685830271434
+Build-Jdk: 1.8.0_181
+Built-By: Ilya
+Bundle-Description: This is the ru.shevtsov.ilya.plugins.spring:spring-p
+ lugin plugin for Atlassian JIRA.
+Bundle-DocURL: http://www.example.com/
+Bundle-ManifestVersion: 2
+Bundle-Name: spring-plugin
+Bundle-SymbolicName: ru.shevtsov.ilya.plugins.spring.plugin
+Bundle-Vendor: Vladosya Ilya Oksanus Sanina
+Bundle-Version: 1.0.0.SNAPSHOT
+Created-By: Apache Maven Bundle Plugin
+Export-Package: ru.shevtsov.ilya.plugins.spring.api;version="1.0.0"
+Import-Package: com.atlassian.jira,com.atlassian.jira.jql.operand,com.at
+ lassian.jira.jql.query,com.atlassian.jira.plugin.jql.function,com.atlas
+ sian.jira.user,com.atlassian.jira.util,com.atlassian.jira.web.action,co
+ m.atlassian.plugin.spring.scanner.annotation.export,com.atlassian.plugi
+ n.spring.scanner.annotation.imports,com.atlassian.query.clause,com.atla
+ ssian.query.operand,com.atlassian.sal.api,javax.inject,org.slf4j,ru.she
+ vtsov.ilya.plugins.spring.api;version="[1.0,2)"
+Originally-Created-By: Apache Maven Bundle Plugin
+Spring-Context: *
+Tool: Bnd-3.5.0.201709291849

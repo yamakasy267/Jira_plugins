@@ -1,0 +1,57 @@
+#customfields-container {
+  padding-top: 20px;
+  min-height: 100px;
+  position: relative;
+  &.active::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    background-color: #fff;
+    opacity: 0.5;
+  }
+  #custom-fields-table {
+    table-layout: fixed;
+    width: 100%;
+    white-space: nowrap;
+    td,
+    div.secondary-text,
+    .buttons {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    /* Column widths are based on these cells */
+    th.customfield-name {
+      width: 45%;
+    }
+    th.customfield-type {
+      width: 15%;
+    }
+    th.customfield-contexts {
+      width: 15%;
+    }
+    th.customfield-screens {
+      width: 15%;
+    }
+    th.customfield-actions {
+      width: 10%;
+    }
+    span.aui-lozenge {
+      margin-left: 10px;
+    }
+    + #pagination-container {
+      margin-top: 10px;
+      clear: both; // clear the floated pagination so that loading indicator can block it
+      &::after {
+        content: '';
+        display: block;
+        visibility: hidden;
+        clear: both;
+      }
+    }
+  }
+}

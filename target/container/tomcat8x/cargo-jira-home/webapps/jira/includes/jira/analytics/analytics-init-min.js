@@ -1,0 +1,1 @@
+require(["jquery","jira/analytics","jira/util/data/meta"],function(a,t,c){"use strict";function i(a){var t=c.get("analytics-prefix");return t&&(a=t+a),a}function n(){a("[data-track-pageview]").each(function(c,n){t.send({name:i(a(n).data("track-pageview"))})})}a(document).on("click","[data-track-click]",function(){t.send({name:i(a(this).data("track-click"))})}),a(n)});

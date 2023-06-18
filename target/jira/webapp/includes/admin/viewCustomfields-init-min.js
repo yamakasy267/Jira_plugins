@@ -1,0 +1,1 @@
+require(["jquery","jira/util/data/meta","jira/customfields/customfieldsView"],function(e,t,i){"use strict";e(function(){t.get("is-custom-field-types-exist")&&new i({el:"section.aui-page-panel-content"})})});
