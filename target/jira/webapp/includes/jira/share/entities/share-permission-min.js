@@ -1,1 +1,0 @@
-define("jira/share/entities/share-permission",[],function(){"use strict";function t(t,a,i){this.type=t,a&&(this.param1=a),i&&(this.param2=i)}return t.prototype.equals=function(t){return this.type===t.type&&this.param1===t.param1&&this.param2===t.param2},t});

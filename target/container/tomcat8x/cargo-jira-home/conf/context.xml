@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?><!-- To fix AMPS-1429, MavenGoals#startWebapp configures Cargo to copy this file into Tomcat's conf directory --><Context>
-    <JarScanner>
-        <JarScanFilter pluggabilitySkip="${jarsToSkip}" tldSkip="${jarsToSkip}"/>
-    </JarScanner>
-<Resource auth="Container" driverClassName="org.h2.Driver" factory="org.apache.tomcat.dbcp.dbcp2.BasicDataSourceFactory" name="jdbc/JiraDS" password="" type="javax.sql.DataSource" url="jdbc:h2:file:D:/JIRA/spring-plugin/target/jira/home/database/h2db" username="sa"/>
-<Resource auth="Container" factory="org.objectweb.jotm.UserTransactionFactory" jotm.timeout="60" name="UserTransaction" type="javax.transaction.UserTransaction"/>
-</Context>
