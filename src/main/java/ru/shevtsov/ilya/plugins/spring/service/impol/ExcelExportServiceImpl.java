@@ -1,42 +1,48 @@
 package ru.shevtsov.ilya.plugins.spring.jira.webwork;
 
-import com.atlassian.jira.bc.JiraServiceContextImpl;
 import com.atlassian.jira.bc.issue.search.SearchService;
 import com.atlassian.jira.component.ComponentAccessor;
 import com.atlassian.jira.issue.Issue;
 import com.atlassian.jira.issue.search.SearchException;
+import com.atlassian.jira.issue.search.SearchResults;
 import com.atlassian.jira.jql.builder.JqlClauseBuilder;
 import com.atlassian.jira.jql.builder.JqlQueryBuilder;
 import com.atlassian.jira.project.ProjectManager;
-import com.atlassian.jira.security.JiraAuthenticationContext;
 import com.atlassian.jira.user.ApplicationUser;
 import com.atlassian.jira.web.bean.PagerFilter;
-import com.atlassian.jira.issue.search.SearchResults;
-import com.atlassian.plugin.spring.scanner.annotation.imports.JiraImport;
+import com.atlassian.plugin.spring.scanner.annotation.export.ExportAsService;
+import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import com.atlassian.query.Query;
+import ru.shevtsov.ilya.plugins.spring.service.ExcelExpotrService;
 
 import java.util.List;
 
-public class Export {
-    @JiraImport
-    private static SearchService searchService;
-    @JiraImport
-    private static ApplicationUser searchUser;
-    @JiraImport
-    private static JiraAuthenticationContext authenticationContext;
 
-    public static List<Issue> getIssues() {
-//        ProjectManager projectManager;
-//        projectManager.getProjectObj(1L).
+@ExportAsService
+public class ExcelExportServiceImpl implements ExcelExpotrService {
+    ProjectManager projectManager;
+    @ComponentImport
+    final SearchService searchService;
+    private static final long PROJECT_ID = 1L;
 
-        ApplicationUser user = authenticationContext.getLoggedInUser();
+    public ExcelExportServiceImpl(ProjectManager projectManager,
+                                  SearchService searchService) {
+        this.projectManager = projectManager;
+        this.searchService = searchService;
+    }
+
+    @Override
+    public List<Issue> getRelevantIssue() {
         JqlClauseBuilder jqlClauseBuilder = JqlQueryBuilder.newClauseBuilder();
         Query query = jqlClauseBuilder.project("TUTORIAL").buildQuery();
         PagerFilter pagerFilter = PagerFilter.getUnlimitedFilter();
 
+
+        ApplicationUser currentUser = ComponentAccessor.getJiraAuthenticationContext().getLoggedInUser();
+
         SearchResults searchResults = null;
         try {
-            searchResults = searchService.search(user, query, pagerFilter);
+            searchResults = searchService.search(currentUser, query, pagerFilter);
             //e.printStackTrace();
         }
         catch (SearchException e) {
@@ -45,4 +51,6 @@ public class Export {
 
         return searchResults != null ? searchResults.getIssues() : null;
     }
+
+
 }

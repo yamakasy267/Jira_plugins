@@ -1,1 +1,5 @@
+#* @vtlvariable name="action" type="ru.shevtsov.ilya.plugins.spring.jira.webwork.ExcelPluginCreateAction"*#
+
+#set($excelBytes = $action.getExcekFile())
+
 <h1>success.vm</h1>
