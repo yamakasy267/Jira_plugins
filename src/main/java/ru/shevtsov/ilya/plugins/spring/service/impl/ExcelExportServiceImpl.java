@@ -11,24 +11,31 @@ import com.atlassian.jira.project.ProjectManager;
 import com.atlassian.jira.user.ApplicationUser;
 import com.atlassian.jira.web.bean.PagerFilter;
 import com.atlassian.plugin.spring.scanner.annotation.export.ExportAsService;
+import com.atlassian.plugin.spring.scanner.annotation.imports.JiraImport;
 import com.atlassian.query.Query;
 import ru.shevtsov.ilya.plugins.spring.service.ExcelExportService;
 
+import javax.inject.Inject;
+import javax.inject.Named;
 import java.util.List;
 
 
-@ExportAsService
+@Named
 public class ExcelExportServiceImpl implements ExcelExportService {
     ProjectManager projectManager;
     SearchService searchService;
     private static final long PROJECT_ID = 1L; //заменить на трушное имя проекта/ID
-
-    public ExcelExportServiceImpl(ProjectManager projectManager, SearchService searchService) {
+    @Inject
+    public ExcelExportServiceImpl(
+            @JiraImport ProjectManager projectManager,
+            @JiraImport SearchService searchService) {
         System.out.println("\n\n\n\n\n\n 4 \n\n\n\n\n");
         this.projectManager = projectManager;
         this.searchService = searchService;
         System.out.println("\n\n\n\n\n\n 5 \n\n\n\n\n");
     }
+
+
 
     @Override
     public List<Issue> getRelevantIssue() {
