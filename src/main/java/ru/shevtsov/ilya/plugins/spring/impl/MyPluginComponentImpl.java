@@ -12,11 +12,11 @@ import javax.inject.Named;
 @Named ("myPluginComponent")
 public class MyPluginComponentImpl implements MyPluginComponent
 {
-        @ComponentImport
-        private final ApplicationProperties applicationProperties;
+    @ComponentImport
+    private final ApplicationProperties applicationProperties;
 
-        @Inject
-        public MyPluginComponentImpl(final ApplicationProperties applicationProperties)
+    @Inject
+    public MyPluginComponentImpl(final ApplicationProperties applicationProperties)
     {
         this.applicationProperties = applicationProperties;
     }
@@ -27,7 +27,6 @@ public class MyPluginComponentImpl implements MyPluginComponent
         {
             return "myComponent:" + applicationProperties.getDisplayName();
         }
-        
         return "myComponent";
     }
 }

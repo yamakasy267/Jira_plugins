@@ -13,27 +13,27 @@
   <!-- add our web resources -->  
   <web-resource key="spring-plugin-resources" name="spring-plugin Web Resources"> 
     <dependency>com.atlassian.auiplugin:ajs</dependency>  
-    <resource type="download" name="spring-plugin.css" location="/css/spring-plugin.css"/>  
-    <resource type="download" name="spring-plugin.js" location="/js/spring-plugin.js"/>  
-    <resource type="download" name="images/" location="/images"/>  
-    <context>spring-plugin</context> 
-  </web-resource>  
+    <resource type="download" name="spring-plugin.css" location="/css/spring-plugin.css"/>
+    <resource type="download" name="spring-plugin.js" location="/js/spring-plugin.js"/>
+    <resource type="download" name="images/" location="/images"/>
+    <context>spring-plugin</context>
+  </web-resource>
   <web-section name="I wanna Die" i18n-name-key="my-links-main-section.name" key="my_links_section" location="my_links_link" weight="10"/>  
   <web-item key="my_links_link" name="My vk" section="system.top.navigation.bar" weight="47"> 
-    <label>Button</label>  
+    <label>wge</label>
     <link linkId="my_links_link">https://vk.com/drinksanina</link> 
-  </web-item>  
+  </web-item>
   <web-item key="website_link" name="Company Web Site" section="my_links_link/my_links_section" weight="10"> 
-    <label>Web Site</label>  
-    <link linkId="website_link">/secure/ExelPluginCreateAction.jspa</link> 
+    <label>Export in XLSX</label>
+    <link linkId="website_link">/secure/ExcelPluginCreateAction.jspa</link>
   </web-item>  
-  <webwork1 key="exel-plugin-create" name="ExelPluginCreate" i18n-name-key="exel-plugin-create.name"> 
-    <description key="exel-plugin-create.description">The ExelPluginCreate Plugin</description>  
+  <webwork1 key="excel-plugin-create" name="ExcelPluginCreate" i18n-name-key="excel-plugin-create.name">
+    <description key="excel-plugin-create.description">The ExcelPluginCreate Plugin</description>
     <actions> 
-      <action name="ru.shevtsov.ilya.plugins.spring.jira.webwork.ExelPluginCreateAction" alias="ExelPluginCreateAction"> 
-        <view name="success">/templates/exel-plugin-create/success.vm</view>  
-        <view name="input">/templates/exel-plugin-create/input.vm</view>  
-        <view name="error">/templates/exel-plugin-create/error.vm</view> 
+      <action name="ru.shevtsov.ilya.plugins.spring.jira.webwork.ExcelPluginCreateAction" alias="ExcelPluginCreateAction">
+        <view name="success">/templates/excel-plugin-create/success.vm</view>
+        <view name="input">/templates/excel-plugin-create/input.vm</view>
+        <view name="error">/templates/excel-plugin-create/error.vm</view>
       </action> 
     </actions> 
   </webwork1>  
