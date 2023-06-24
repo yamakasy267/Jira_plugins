@@ -20,7 +20,7 @@
   </web-resource>
   <web-section name="I wanna Die" i18n-name-key="my-links-main-section.name" key="my_links_section" location="my_links_link" weight="10"/>  
   <web-item key="my_links_link" name="My vk" section="system.top.navigation.bar" weight="47"> 
-    <label>wge</label>
+    <label>Export</label>
     <link linkId="my_links_link">https://vk.com/drinksanina</link> 
   </web-item>
   <web-item key="website_link" name="Company Web Site" section="my_links_link/my_links_section" weight="10"> 

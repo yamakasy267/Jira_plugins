@@ -13,6 +13,9 @@ import com.atlassian.jira.web.bean.PagerFilter;
 import com.atlassian.plugin.spring.scanner.annotation.export.ExportAsService;
 import com.atlassian.plugin.spring.scanner.annotation.imports.JiraImport;
 import com.atlassian.query.Query;
+import com.atlassian.jira.issue.context.AbstractJiraContext;
+import com.atlassian.jira.issue.context.ProjectContext;
+
 import ru.shevtsov.ilya.plugins.spring.service.ExcelExportService;
 
 import javax.inject.Inject;
@@ -42,23 +45,31 @@ public class ExcelExportServiceImpl implements ExcelExportService {
 
         System.out.println("\n\n\n\n\n\n 6 \n\n\n\n\n");
 
+        //def baseurl = com.atlassian.jira.component.ComponentAccessor.getApplicationProperties().getString("jira.baseurl")
+        //ComponentAccessor.getApplicationProperties().
+
+        //
+        String ApplicationProperties = ComponentAccessor.getApplicationProperties().getString("jira.baseurl");
+        System.out.println("\n\n\n\n\n\n" + ApplicationProperties + "\n\n\n\n\n");
+        //
+
+        //project = projectName AND status = Open AND type = Тема //итоговое
+
+        String projectName = "RJ";
         JqlClauseBuilder jqlClauseBuilder = JqlQueryBuilder.newClauseBuilder();
-        Query query = jqlClauseBuilder.project("TUTORIAL").buildQuery();
+        Query query = jqlClauseBuilder.project(projectName).and().status("In Progress").and().issueType("Задача").buildQuery();
+
         PagerFilter pagerFilter = PagerFilter.getUnlimitedFilter();
 
-        System.out.println("\n\n\n\n\n\n 7 \n\n\n\n\n");
-
         ApplicationUser currentUser = ComponentAccessor.getJiraAuthenticationContext().getLoggedInUser();
-
-        System.out.println("\n\n\n\n\n\n 8 \n\n\n\n\n");
 
         SearchResults searchResults = null;
         try {
             searchResults = searchService.search(currentUser, query, pagerFilter);
             //e.printStackTrace();
         }
-        catch (SearchException e) {
-            throw new RuntimeException(e);
+        catch (Exception e) {
+            System.out.println("\n\n\n\n\n\n бегите " + e + "\n\n\n\n\n" );
         }
 
         System.out.println("\n\n\n\n\n\n 9 \n\n\n\n\n");
