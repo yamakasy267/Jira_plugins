@@ -1,18 +1,19 @@
 package ru.shevtsov.ilya.plugins.spring.jira.webwork;
 
-import com.atlassian.jira.component.ComponentAccessor;
 import com.atlassian.jira.issue.Issue;
 import com.atlassian.jira.web.action.JiraWebActionSupport;
 import ru.shevtsov.ilya.plugins.spring.service.ExcelExportService;
 
 import javax.inject.Inject;
-import java.util.Collection;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 
 public class ExcelPluginCreateAction extends JiraWebActionSupport {
     ExcelExportService excelExportService;
     List<Issue> relIssues;
+    String epic = "BPM. Развитие и оптимизация 3PL 2023";
 
     @Inject
     public ExcelPluginCreateAction(ExcelExportService excelExportService) {
@@ -21,38 +22,38 @@ public class ExcelPluginCreateAction extends JiraWebActionSupport {
 
     @Override
     public String execute() throws Exception {
-        System.out.println("\n\n\n\n\n\n 2 \n\n\n\n\n");
         try {
             System.out.println(excelExportService);
             relIssues = excelExportService.getRelevantIssue();
         } catch (Exception e) {
             System.out.println("EXCEPTIONS!!!!!!!!!!>>>>>>>>>>" + e);
         }
-        System.out.println("\n\n\n\n\n\n 3 \n\n\n\n\n");
 
-        try{
-            System.out.println("\n\n\n\n\n\n" + relIssues + "\n\n\n\n\n");
-            System.out.println("getId: " + relIssues.get(0).getId() +
-                    "\ngetKey: " + relIssues.get(0).getKey() +
-                    "\ngetIssueType: " + relIssues.get(0).getIssueType().getName() +
-                    "\ngetSummary: " + relIssues.get(0).getSummary() +
-                    "\ngetReporter: " + relIssues.get(0).getReporter() +
-                    "\ngetDueDate: " + relIssues.get(0).getDueDate() +
-                    "\ngetAssignee: " + relIssues.get(0).getAssignee() +
-                    "\ngetStatus: " + relIssues.get(0).getStatus().getName() +
-                    //"\ngetParentObject: " + relIssues.get(0).getParentObject() +
-                    "\ngetSubTaskObjects: " + relIssues.get(0).getSubTaskObjects()
-            );
+        Map<Integer, Object[]> issueMap = new TreeMap<Integer, Object[]>();
 
-            Collection<Issue> key = relIssues.get(0).getSubTaskObjects();
-            relIssues.add(ComponentAccessor.getIssueManager().getIssueByCurrentKey(key.toArray()[0].toString()));
-            System.out.println("\n\n\n\n\n\n" + relIssues.get(1).getSummary() + "\n\n\n\n\n");
+        for (Issue issue : relIssues)
+        {
+            //data.put(0, new Object[] {"BPM3PL3-1", "Тема", "Продукт/инструмент для работы с большими/сложными клиентами", "", "", "Открыто"});
 
-        } catch (Exception e) {
-            System.out.println("EXCEPTIONS!!!!!!!!!!>>>>>>>>>>" + e);
+            issueMap.put(issue.getId().intValue(), new Object[] { issue.getKey(), issue.getIssueType().getName(),
+                    issue.getSummary(), issue.getReporter(), issue.getDueDate(), issue.getAssignee(),
+                    issue.getStatus().getName() });
+
+            for (Issue subTask : issue.getSubTaskObjects())
+            {
+                issueMap.put(subTask.getId().intValue(), new Object[] { subTask.getKey(), subTask.getIssueType().getName(),
+                        subTask.getSummary(), subTask.getReporter(), subTask.getDueDate(), subTask.getAssignee(),
+                        subTask.getStatus().getName() });
+            }
         }
 
-        return SUCCESS; //returns SUCCESS
+//        IWriteExcel iWriteExcel = null;
+//        iWriteExcel.WriteExcel(issueMap, epic);
+
+        System.out.println("\n\n" + issueMap + "\n\n");
+        System.out.println("\n\n" + issueMap.get(10005)[0] + "\n\n");
+
+        return SUCCESS;
     }
 
     public Byte[] getExcelFile() {

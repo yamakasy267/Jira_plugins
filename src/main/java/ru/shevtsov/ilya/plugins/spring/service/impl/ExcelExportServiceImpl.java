@@ -32,30 +32,24 @@ public class ExcelExportServiceImpl implements ExcelExportService {
     public ExcelExportServiceImpl(
             @JiraImport ProjectManager projectManager,
             @JiraImport SearchService searchService) {
-        System.out.println("\n\n\n\n\n\n 4 \n\n\n\n\n");
         this.projectManager = projectManager;
         this.searchService = searchService;
-        System.out.println("\n\n\n\n\n\n 5 \n\n\n\n\n");
     }
 
 
 
     @Override
     public List<Issue> getRelevantIssue() {
-
-        System.out.println("\n\n\n\n\n\n 6 \n\n\n\n\n");
-
         //def baseurl = com.atlassian.jira.component.ComponentAccessor.getApplicationProperties().getString("jira.baseurl")
         //ComponentAccessor.getApplicationProperties().
 
         //
         String ApplicationProperties = ComponentAccessor.getApplicationProperties().getString("jira.baseurl");
-        System.out.println("\n\n\n\n\n\n" + ApplicationProperties + "\n\n\n\n\n");
         //
 
         //project = projectName AND status = Open AND type = Тема //итоговое
 
-        String projectName = "RJ";
+        String projectName = "JR";
         JqlClauseBuilder jqlClauseBuilder = JqlQueryBuilder.newClauseBuilder();
         Query query = jqlClauseBuilder.project(projectName).and().status("In Progress").and().issueType("Задача").buildQuery();
 
@@ -66,13 +60,10 @@ public class ExcelExportServiceImpl implements ExcelExportService {
         SearchResults searchResults = null;
         try {
             searchResults = searchService.search(currentUser, query, pagerFilter);
-            //e.printStackTrace();
         }
         catch (Exception e) {
             System.out.println("\n\n\n\n\n\n бегите " + e + "\n\n\n\n\n" );
         }
-
-        System.out.println("\n\n\n\n\n\n 9 \n\n\n\n\n");
 
         return searchResults != null ? searchResults.getIssues() : null;
     }
