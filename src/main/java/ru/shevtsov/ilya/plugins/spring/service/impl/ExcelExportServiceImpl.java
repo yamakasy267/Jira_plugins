@@ -39,7 +39,7 @@ public class ExcelExportServiceImpl implements ExcelExportService {
 
 
     @Override
-    public List<Issue> getRelevantIssue() {
+    public List<Issue> getRelevantIssue(String projectKey) {
         //def baseurl = com.atlassian.jira.component.ComponentAccessor.getApplicationProperties().getString("jira.baseurl")
         //ComponentAccessor.getApplicationProperties().
 
@@ -49,7 +49,7 @@ public class ExcelExportServiceImpl implements ExcelExportService {
 
         //project = projectName AND status = Open AND type = Тема //итоговое
 
-        String projectName = "JR";
+        String projectName = projectKey;
         JqlClauseBuilder jqlClauseBuilder = JqlQueryBuilder.newClauseBuilder();
         Query query = jqlClauseBuilder.project(projectName).and().status("In Progress").and().issueType("Задача").buildQuery();
 

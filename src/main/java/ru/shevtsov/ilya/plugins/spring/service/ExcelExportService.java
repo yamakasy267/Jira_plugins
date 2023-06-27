@@ -5,5 +5,5 @@ import com.atlassian.jira.issue.Issue;
 import java.util.List;
 
 public interface ExcelExportService {
-    List<Issue> getRelevantIssue();
+    List<Issue> getRelevantIssue(String projectKey);
 }

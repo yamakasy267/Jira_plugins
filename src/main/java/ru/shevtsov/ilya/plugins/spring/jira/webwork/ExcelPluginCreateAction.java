@@ -1,106 +1,100 @@
 package ru.shevtsov.ilya.plugins.spring.jira.webwork;
+import com.atlassian.jira.component.ComponentAccessor;
+import com.atlassian.jira.project.Project;
+import com.atlassian.plugin.spring.scanner.annotation.imports.JiraImport;
+import ru.shevtsov.ilya.plugins.spring.service.*;
 
+import com.atlassian.jira.project.ProjectManager;
 import com.atlassian.jira.issue.Issue;
 import com.atlassian.jira.web.action.JiraWebActionSupport;
-import ru.shevtsov.ilya.plugins.spring.service.ExcelExportService;
 
 import javax.inject.Inject;
+import java.text.SimpleDateFormat;
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
-
+import java.util.*;
 
 public class ExcelPluginCreateAction extends JiraWebActionSupport {
     ExcelExportService excelExportService;
+    IWriteExcel iWriteExcel;
     List<Issue> relIssues;
     String epic = "BPM. Развитие и оптимизация 3PL 2023";
     private String projectKey;
-    @Inject
-    public ExcelPluginCreateAction(ExcelExportService excelExportService) {
-        this.excelExportService = excelExportService;
-    }
 
+    @Inject
+    public ExcelPluginCreateAction(ExcelExportService excelExportService, IWriteExcel iWriteExcel) {
+        this.excelExportService = excelExportService;
+        this.iWriteExcel = iWriteExcel;
+    }
     public String getProjectKey() {
         return projectKey;
     }
-
     public void setProjectKey(String projectKey) {
         this.projectKey = projectKey;
     }
 
-
     @Override
     public String doDefault() throws Exception {
         try {
-            System.out.println(excelExportService);
-            relIssues = excelExportService.getRelevantIssue();
-        } catch (Exception e) {
-            System.out.println("EXCEPTIONS!!!!!!!!!!>>>>>>>>>>" + e);
+            relIssues = excelExportService.getRelevantIssue(projectKey);
+        } catch (Exception error) {
+            System.out.println("\n\n" + error + "\n\n");
         }
-        System.out.println("EXCEPTIONS!!!!!!!!!!>>>>>>>>>>" + projectKey);
-        Map<Integer, Object[]> issueMap = new TreeMap<Integer, Object[]>();
+        epic = ComponentAccessor.getProjectManager().getProjectByCurrentKey(projectKey).getName();
+
+        Map<Integer, Object[]> issueMap = new LinkedHashMap<Integer, Object[]>();
 
         for (Issue issue : relIssues)
         {
-            //data.put(0, new Object[] {"BPM3PL3-1", "Тема", "Продукт/инструмент для работы с большими/сложными клиентами", "", "", "Открыто"});
-
-            issueMap.put(issue.getId().intValue(), new Object[] { issue.getKey(), issue.getIssueType().getName(),
-                    issue.getSummary(), issue.getReporter(), issue.getDueDate(), issue.getAssignee(),
-                    issue.getStatus().getName() });
+            int elemNumInGroup = issue.getSubTaskObjects().size();
+            String date = new SimpleDateFormat("dd.MM.yyyy").format(issue.getDueDate());
+            issueMap.put(issue.getId().intValue(), new Object[] {
+                    issue.getKey(),
+                    issue.getIssueType().getName(),
+                    issue.getSummary(),
+                    date,
+                    issue.getAssignee().getName(),
+                    issue.getStatus().getName(),
+                    elemNumInGroup
+            });
 
             for (Issue subTask : issue.getSubTaskObjects())
             {
-                issueMap.put(subTask.getId().intValue(), new Object[] { subTask.getKey(), subTask.getIssueType().getName(),
-                        subTask.getSummary(), subTask.getReporter(), subTask.getDueDate(), subTask.getAssignee(),
-                        subTask.getStatus().getName() });
+                date = new SimpleDateFormat("dd.MM.yyyy").format(subTask.getDueDate());
+                issueMap.put(subTask.getId().intValue(), new Object[] {
+                        subTask.getKey(),
+                        subTask.getIssueType().getName(),
+                        subTask.getSummary(),
+                        date,
+                        issue.getAssignee().getName(),
+                        subTask.getStatus().getName(),
+                        elemNumInGroup
+                });
             }
+
+            System.out.println("\n\n" + issueMap + "\n\n");
         }
 
-//        IWriteExcel iWriteExcel = null;
-//        iWriteExcel.WriteExcel(issueMap, epic);
+        try {
+            iWriteExcel.WriteExcel(issueMap, epic);
+        }
+        catch (Exception error)
+        {
+            System.out.println("\n\n" + error + "\n\n");
+        }
 
-        //System.out.println("\n\n" + issueMap + "\n\n");
-        //System.out.println("\n\n" + issueMap.get(10005)[0] + "\n\n");
+        System.out.println("\n\nissueMap: " + issueMap + "\n\n");
+
+        System.out.println("\n\n" + issueMap.get(10005)[0] + "\t" + issueMap.get(10005)[1] + "\t" +
+                                    issueMap.get(10005)[2] + "\t" + issueMap.get(10005)[3] + "\t" +
+                                    issueMap.get(10005)[4] + "\t" + issueMap.get(10005)[5] + "\n\n");
+
+        System.out.println("\n\n" + issueMap.get(10006)[0] + "\t" + issueMap.get(10006)[1] + "\t" +
+                                    issueMap.get(10006)[2] + "\t" + issueMap.get(10006)[3] + "\t" +
+                                    issueMap.get(10006)[4] + "\t" + issueMap.get(10006)[5] + "\n\n");
 
         return SUCCESS;
 
     }
-
-//    @Override
-//    public String execute() throws Exception {
-//        try {
-//            System.out.println(excelExportService);
-//            relIssues = excelExportService.getRelevantIssue();
-//        } catch (Exception e) {
-//            System.out.println("EXCEPTIONS!!!!!!!!!!>>>>>>>>>>" + e);
-//        }
-//        System.out.println("EXCEPTIONS!!!!!!!!!!>>>>>>>>>>" + projectKey);
-//        Map<Integer, Object[]> issueMap = new TreeMap<Integer, Object[]>();
-//
-//        for (Issue issue : relIssues)
-//        {
-//            //data.put(0, new Object[] {"BPM3PL3-1", "Тема", "Продукт/инструмент для работы с большими/сложными клиентами", "", "", "Открыто"});
-//
-//            issueMap.put(issue.getId().intValue(), new Object[] { issue.getKey(), issue.getIssueType().getName(),
-//                    issue.getSummary(), issue.getReporter(), issue.getDueDate(), issue.getAssignee(),
-//                    issue.getStatus().getName() });
-//
-//            for (Issue subTask : issue.getSubTaskObjects())
-//            {
-//                issueMap.put(subTask.getId().intValue(), new Object[] { subTask.getKey(), subTask.getIssueType().getName(),
-//                        subTask.getSummary(), subTask.getReporter(), subTask.getDueDate(), subTask.getAssignee(),
-//                        subTask.getStatus().getName() });
-//            }
-//        }
-//
-////        IWriteExcel iWriteExcel = null;
-////        iWriteExcel.WriteExcel(issueMap, epic);
-//
-//        //System.out.println("\n\n" + issueMap + "\n\n");
-//        //System.out.println("\n\n" + issueMap.get(10005)[0] + "\n\n");
-//
-//        return SUCCESS;
-//    }
 
     public Byte[] getExcelFile() {
         //relIssues.forEach(issue -> );
