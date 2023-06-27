@@ -38,36 +38,72 @@ public class ExcelPluginCreateAction extends JiraWebActionSupport {
         epic = ComponentAccessor.getProjectManager().getProjectByCurrentKey(projectKey).getName();
 
         Map<Integer, Object[]> issueMap = new LinkedHashMap<Integer, Object[]>();
+        String date;
+        String assigneeName;
 
         for (Issue issue : relIssues)
         {
             int elemNumInGroup = issue.getSubTaskObjects().size();
-            String date = new SimpleDateFormat("dd.MM.yyyy").format(issue.getDueDate());
-            issueMap.put(issue.getId().intValue(), new Object[] {
-                    issue.getKey(),
-                    issue.getIssueType().getName(),
-                    issue.getSummary(),
-                    date,
-                    issue.getAssignee().getName(),
-                    issue.getStatus().getName(),
-                    elemNumInGroup
-            });
 
-            for (Issue subTask : issue.getSubTaskObjects())
+            try
             {
-                date = new SimpleDateFormat("dd.MM.yyyy").format(subTask.getDueDate());
-                issueMap.put(subTask.getId().intValue(), new Object[] {
-                        subTask.getKey(),
-                        subTask.getIssueType().getName(),
-                        subTask.getSummary(),
+                if(issue.getDueDate() == null) {
+                    date = " ";
+                } else {
+                    date = new SimpleDateFormat("dd.MM.yyyy").format(issue.getDueDate());
+                }
+
+                assigneeName = issue.getAssignee().getName();
+
+                if(date == null) { date = " "; }
+                if(assigneeName == null) { assigneeName = " "; }
+
+                issueMap.put(issue.getId().intValue(), new Object[] {
+                        issue.getKey(),
+                        issue.getIssueType().getName(),
+                        issue.getSummary(),
                         date,
-                        issue.getAssignee().getName(),
-                        subTask.getStatus().getName(),
+                        assigneeName,
+                        issue.getStatus().getName(),
                         elemNumInGroup
                 });
             }
-        }
+            catch (Exception error)
+            {
+                System.out.println("\n\n" + error + "\n\n");
+            }
 
+            for (Issue subTask : issue.getSubTaskObjects())
+            {
+                try
+                {
+                    if(subTask.getDueDate() == null) {
+                        date = " ";
+                    } else {
+                        date = new SimpleDateFormat("dd.MM.yyyy").format(subTask.getDueDate());
+                    }
+
+                    assigneeName = issue.getAssignee().getName();
+
+                    if(date == null) { date = " "; }
+                    if(assigneeName == null) { assigneeName = " "; }
+
+                    issueMap.put(subTask.getId().intValue(), new Object[] {
+                            subTask.getKey(),
+                            subTask.getIssueType().getName(),
+                            subTask.getSummary(),
+                            date,
+                            assigneeName,
+                            subTask.getStatus().getName(),
+                            elemNumInGroup
+                    });
+                }
+                catch (Exception error)
+                {
+                    System.out.println("\n\n" + error + "\n\n");
+                }
+            }
+        }
         try {
             iWriteExcel.WriteExcel(issueMap, epic);
         }

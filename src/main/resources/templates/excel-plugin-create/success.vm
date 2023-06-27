@@ -1,6 +1,0 @@
-#* @vtlvariable name="action" type="ru.shevtsov.ilya.plugins.spring.jira.webwork.ExcelPluginCreateAction" *#
-<h1>success.vm</h1>
-
-<h2>FUCK YEAH: $action.getProjectKey()</h2>
-$projectKey
-
