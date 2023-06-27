@@ -110,17 +110,14 @@ public class WriteExcelImpl implements IWriteExcel {
         {
             String home = System.getProperty("user.home");
             String currDateTime = new SimpleDateFormat("_yyMMdd_HHmm").format(new Date());
-
-            System.out.println("\n" + currDateTime + "\n");
             FileOutputStream out = new FileOutputStream(new File(home + "/Downloads/" + epic + currDateTime + ".xlsx"));
             workbook.write(out);
             out.close();
             System.out.println(epic + ".xlsx written successfully in" + home + "\\Downloads");
         }
-        catch (Exception e)
+        catch (Exception error)
         {
-            //e.printStackTrace();
-            System.out.println("Процесс не может получить доступ к файлу, так как этот файл занят другим процессом.");
+            System.out.println("\n\n" + error + "\n\n");
         }
     }
 }

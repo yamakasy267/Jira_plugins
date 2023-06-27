@@ -36,33 +36,20 @@ public class ExcelExportServiceImpl implements ExcelExportService {
         this.searchService = searchService;
     }
 
-
-
     @Override
     public List<Issue> getRelevantIssue(String projectKey) {
-        //def baseurl = com.atlassian.jira.component.ComponentAccessor.getApplicationProperties().getString("jira.baseurl")
-        //ComponentAccessor.getApplicationProperties().
-
-        //
-        String ApplicationProperties = ComponentAccessor.getApplicationProperties().getString("jira.baseurl");
-        //
-
-        //project = projectName AND status = Open AND type = Тема //итоговое
-
         String projectName = projectKey;
         JqlClauseBuilder jqlClauseBuilder = JqlQueryBuilder.newClauseBuilder();
         Query query = jqlClauseBuilder.project(projectName).and().status("In Progress").and().issueType("Задача").buildQuery();
-
         PagerFilter pagerFilter = PagerFilter.getUnlimitedFilter();
-
         ApplicationUser currentUser = ComponentAccessor.getJiraAuthenticationContext().getLoggedInUser();
 
         SearchResults searchResults = null;
         try {
             searchResults = searchService.search(currentUser, query, pagerFilter);
         }
-        catch (Exception e) {
-            System.out.println("\n\n\n\n\n\n бегите " + e + "\n\n\n\n\n" );
+        catch (Exception error) {
+            System.out.println("\n\n" + error + "\n\n");
         }
 
         return searchResults != null ? searchResults.getIssues() : null;

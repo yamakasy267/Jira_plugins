@@ -1,10 +1,6 @@
 package ru.shevtsov.ilya.plugins.spring.jira.webwork;
-import com.atlassian.jira.component.ComponentAccessor;
-import com.atlassian.jira.project.Project;
-import com.atlassian.plugin.spring.scanner.annotation.imports.JiraImport;
 import ru.shevtsov.ilya.plugins.spring.service.*;
-
-import com.atlassian.jira.project.ProjectManager;
+import com.atlassian.jira.component.ComponentAccessor;
 import com.atlassian.jira.issue.Issue;
 import com.atlassian.jira.web.action.JiraWebActionSupport;
 
@@ -17,7 +13,7 @@ public class ExcelPluginCreateAction extends JiraWebActionSupport {
     ExcelExportService excelExportService;
     IWriteExcel iWriteExcel;
     List<Issue> relIssues;
-    String epic = "BPM. Развитие и оптимизация 3PL 2023";
+    String epic;
     private String projectKey;
 
     @Inject
@@ -70,8 +66,6 @@ public class ExcelPluginCreateAction extends JiraWebActionSupport {
                         elemNumInGroup
                 });
             }
-
-            System.out.println("\n\n" + issueMap + "\n\n");
         }
 
         try {
@@ -82,23 +76,6 @@ public class ExcelPluginCreateAction extends JiraWebActionSupport {
             System.out.println("\n\n" + error + "\n\n");
         }
 
-        System.out.println("\n\nissueMap: " + issueMap + "\n\n");
-
-        System.out.println("\n\n" + issueMap.get(10005)[0] + "\t" + issueMap.get(10005)[1] + "\t" +
-                                    issueMap.get(10005)[2] + "\t" + issueMap.get(10005)[3] + "\t" +
-                                    issueMap.get(10005)[4] + "\t" + issueMap.get(10005)[5] + "\n\n");
-
-        System.out.println("\n\n" + issueMap.get(10006)[0] + "\t" + issueMap.get(10006)[1] + "\t" +
-                                    issueMap.get(10006)[2] + "\t" + issueMap.get(10006)[3] + "\t" +
-                                    issueMap.get(10006)[4] + "\t" + issueMap.get(10006)[5] + "\n\n");
-
         return SUCCESS;
-
-    }
-
-    public Byte[] getExcelFile() {
-        //relIssues.forEach(issue -> );
-
-        return null;
     }
 }
