@@ -1,5 +1,5 @@
 package ru.shevtsov.ilya.plugins.spring.jira.webwork;
-import ru.shevtsov.ilya.plugins.spring.service.*;
+import ru.shevtsov.ilya.plugins.spring.domain.*;
 import com.atlassian.jira.component.ComponentAccessor;
 import com.atlassian.jira.issue.Issue;
 import com.atlassian.jira.web.action.JiraWebActionSupport;
@@ -10,15 +10,15 @@ import java.util.List;
 import java.util.*;
 
 public class ExcelPluginCreateAction extends JiraWebActionSupport {
-    ExcelExportService excelExportService;
+    IExcelExportService IExcelExportService;
     IWriteExcel iWriteExcel;
     List<Issue> relIssues;
     String epic;
     private String projectKey;
 
     @Inject
-    public ExcelPluginCreateAction(ExcelExportService excelExportService, IWriteExcel iWriteExcel) {
-        this.excelExportService = excelExportService;
+    public ExcelPluginCreateAction(IExcelExportService IExcelExportService, IWriteExcel iWriteExcel) {
+        this.IExcelExportService = IExcelExportService;
         this.iWriteExcel = iWriteExcel;
     }
     public String getProjectKey() {
@@ -31,7 +31,7 @@ public class ExcelPluginCreateAction extends JiraWebActionSupport {
     @Override
     public String doDefault() throws Exception {
         try {
-            relIssues = excelExportService.getRelevantIssue(projectKey);
+            relIssues = IExcelExportService.getRelevantIssue(projectKey);
         } catch (Exception error) {
             System.out.println("\n\n" + error + "\n\n");
         }

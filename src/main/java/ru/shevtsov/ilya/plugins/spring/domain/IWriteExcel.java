@@ -1,4 +1,4 @@
-package ru.shevtsov.ilya.plugins.spring.service;
+package ru.shevtsov.ilya.plugins.spring.domain;
 
 import java.util.Map;
 

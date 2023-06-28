@@ -1,6 +1,6 @@
-package ru.shevtsov.ilya.plugins.spring.service.impl;
+package ru.shevtsov.ilya.plugins.spring.domain.entity;
 
-import ru.shevtsov.ilya.plugins.spring.service.IWriteExcel;
+import ru.shevtsov.ilya.plugins.spring.domain.IWriteExcel;
 
 import java.io.File;
 import java.io.FileOutputStream;
