@@ -23,7 +23,7 @@ import java.util.List;
 public class ExcelExportServiceImpl implements IExcelExportService {
     ProjectManager projectManager;
     SearchService searchService;
-    private static final long PROJECT_ID = 1L; //заменить на трушное имя проекта/ID
+
     @Inject
     public ExcelExportServiceImpl(
             @JiraImport ProjectManager projectManager,
@@ -43,8 +43,7 @@ public class ExcelExportServiceImpl implements IExcelExportService {
         SearchResults searchResults = null;
         try {
             searchResults = searchService.search(currentUser, query, pagerFilter);
-        }
-        catch (Exception error) {
+        } catch (Exception error) {
             System.out.println("\n\n" + error + "\n\n");
         }
 

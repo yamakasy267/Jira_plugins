@@ -41,12 +41,10 @@ public class ExcelPluginCreateAction extends JiraWebActionSupport {
         String date;
         String assigneeName;
 
-        for (Issue issue : relIssues)
-        {
+        for (Issue issue : relIssues) {
             int elemNumInGroup = issue.getSubTaskObjects().size();
 
-            try
-            {
+            try {
                 if(issue.getDueDate() == null) {
                     date = " ";
                 } else {
@@ -68,15 +66,12 @@ public class ExcelPluginCreateAction extends JiraWebActionSupport {
                         elemNumInGroup
                 });
             }
-            catch (Exception error)
-            {
+            catch (Exception error) {
                 System.out.println("\n\n" + error + "\n\n");
             }
 
-            for (Issue subTask : issue.getSubTaskObjects())
-            {
-                try
-                {
+            for (Issue subTask : issue.getSubTaskObjects()) {
+                try {
                     if(subTask.getDueDate() == null) {
                         date = " ";
                     } else {
@@ -98,8 +93,7 @@ public class ExcelPluginCreateAction extends JiraWebActionSupport {
                             elemNumInGroup
                     });
                 }
-                catch (Exception error)
-                {
+                catch (Exception error) {
                     System.out.println("\n\n" + error + "\n\n");
                 }
             }
@@ -107,8 +101,7 @@ public class ExcelPluginCreateAction extends JiraWebActionSupport {
         try {
             iWriteExcel.WriteExcel(issueMap, epic);
         }
-        catch (Exception error)
-        {
+        catch (Exception error) {
             System.out.println("\n\n" + error + "\n\n");
         }
 
